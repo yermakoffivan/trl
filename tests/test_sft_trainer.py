@@ -504,6 +504,13 @@ class TestSFTTrainer(TrlTestCase):
             ),
             "trl-internal-testing/tiny-LlavaForConditionalGeneration",
             "trl-internal-testing/tiny-LlavaNextForConditionalGeneration",
+            pytest.param(
+                "trl-internal-testing/tiny-MuseGlimmerForConditionalGeneration",
+                marks=pytest.mark.skipif(
+                    Version(transformers.__version__) < Version("5.15.0"),
+                    reason="Muse Glimmer was introduced in transformers-5.15.0",
+                ),
+            ),
             "trl-internal-testing/tiny-Qwen2VLForConditionalGeneration",
             "trl-internal-testing/tiny-Qwen2_5_VLForConditionalGeneration",
             pytest.param(
@@ -1846,6 +1853,13 @@ class TestSFTTrainer(TrlTestCase):
             # "trl-internal-testing/tiny-Idefics3ForConditionalGeneration",  high memory peak, skipped for now
             "trl-internal-testing/tiny-LlavaForConditionalGeneration",
             "trl-internal-testing/tiny-LlavaNextForConditionalGeneration",
+            pytest.param(
+                "trl-internal-testing/tiny-MuseGlimmerForConditionalGeneration",
+                marks=pytest.mark.skipif(
+                    Version(transformers.__version__) < Version("5.15.0"),
+                    reason="Muse Glimmer was introduced in transformers-5.15.0",
+                ),
+            ),
             "trl-internal-testing/tiny-Qwen2VLForConditionalGeneration",
             "trl-internal-testing/tiny-Qwen2_5_VLForConditionalGeneration",
             # "trl-internal-testing/tiny-SmolVLMForConditionalGeneration", seems not to support bf16 properly
@@ -2583,6 +2597,13 @@ _CHUNKED_CE_VLM_MODEL_IDS = [
     ),
     "trl-internal-testing/tiny-LlavaForConditionalGeneration",
     "trl-internal-testing/tiny-LlavaNextForConditionalGeneration",
+    pytest.param(
+        "trl-internal-testing/tiny-MuseGlimmerForConditionalGeneration",
+        marks=pytest.mark.skipif(
+            Version(transformers.__version__) < Version("5.15.0"),
+            reason="Muse Glimmer was introduced in transformers-5.15.0",
+        ),
+    ),
     "trl-internal-testing/tiny-Qwen2VLForConditionalGeneration",
     "trl-internal-testing/tiny-Qwen2_5_VLForConditionalGeneration",
     pytest.param(
